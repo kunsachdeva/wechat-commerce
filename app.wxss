@@ -1,0 +1,50 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.tile{
+  height: 150px;
+  width: 150px;
+  border-radius: 25px;
+  background: rgb(230,230,230);
+  background-size: cover;
+  background-position-x: center;
+  box-shadow: 0px -10px 50px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:20px 0px 0px 20px;
+  float: left;
+  font-size: 12px;color: rgb(200,200,200);font-weight: bold;
+}
+
+.tile-with-text{
+  height: 180px;
+  box-shadow: 0px 10px 50px rgba(0,0,0,0.2);
+  background-position-y: -20px;
+}
+
+.tile-banner{
+  float: none!important;
+  width: calc(100% - 40px);
+  height: 100px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(100,100,100,0.5);
+  color: white;
+  font-size: 14px;
+  background-position-y: center;
+}
+
+.tile-text-description{
+  height:50px;width:100%;background:white;position:relative;top:75px;border-radius:0px 0px 20px 20px;box-shadow: 0px -2px 10px rgba(0,0,0,0.2);
+  display: flex;flex-direction: column;padding: 10px;
+}
+
+.h1{
+  float:left;position:relative;font-size:14px;margin:20px 0px 0px 20px;width:100%;color:grey;font-weight:bolder;
+}
