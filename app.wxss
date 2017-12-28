@@ -46,5 +46,13 @@
 }
 
 .h1{
-  float:left;position:relative;font-size:14px;margin:20px 0px 0px 20px;width:100%;color:grey;font-weight:bolder;
+  float:left;position:relative;font-size:16px;margin:20px 0px 0px 20px;width:100%;color:grey;font-weight:bolder;
+}
+
+.h2{
+  float:left;position:relative;font-size:14px;margin:20px 0px 0px 20px;width:100%;color:grey;font-weight: lighter;
+}
+
+.white{
+  color: white;
 }

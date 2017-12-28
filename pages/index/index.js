@@ -36,5 +36,18 @@ Page({
        {url:'https://www.travelchinaguide.com/images/photogallery/2009/0601161148.jpg',name:'SHANGHAI'},
        {url:'http://kosublog.com/wp-content/uploads/2016/10/blog12-3-1-800x533.jpg',name:'SINGAPORE CITY'}
     ]
+  },
+  showProduct: function () {
+    wx.navigateTo({ url: '../item/item' });
+  },
+  showBrand: function () {
+    wx.navigateTo({ url: '../brand/brand' });
+  },
+  showLocation:function(){
+    wx.openLocation({
+      latitude: 31.2243489,
+      longitude: 121.4767528,
+      scale: 28
+    })
   }
 })
