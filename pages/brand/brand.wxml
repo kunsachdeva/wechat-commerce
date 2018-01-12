@@ -10,4 +10,7 @@
         <text style='font-size:0.9em;color:white;font-weight:lighter;margin-left:10px'>39 PRODUCTS</text>
       </view>
     </view>
+    <canvas style="width: 100%; height: 18em;" canvas-id="pieCanvas"></canvas>
+    <canvas style="width: 100%; height: 18em;" canvas-id="areaCanvas"></canvas>
+    
 </view>
