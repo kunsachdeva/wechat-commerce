@@ -35,10 +35,35 @@ Page({
       {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Johannesburg_From_M2_Highway_Looking_North.jpg/800px-Johannesburg_From_M2_Highway_Looking_North.jpg',name:'JOHANNESBURG'},
        {url:'https://www.travelchinaguide.com/images/photogallery/2009/0601161148.jpg',name:'SHANGHAI'},
        {url:'http://kosublog.com/wp-content/uploads/2016/10/blog12-3-1-800x533.jpg',name:'SINGAPORE CITY'}
-    ]
+    ],
+    array: ['USA', 'China', 'Brazil', 'Japan'],
+    objectArray: [
+      {
+        id: 0,
+        name: 'USA'
+      },
+      {
+        id: 1,
+        name: 'China'
+      },
+      {
+        id: 2,
+        name: 'Brazil'
+      },
+      {
+        id: 3,
+        name: 'Japan'
+      }
+    ],
+    index: 0,
+    date: '2016-09-01',
+    time: '12:01'
   },
   showProduct: function () {
     wx.navigateTo({ url: '../item/item' });
+  },
+  doSearch: function (e) {
+    console.log(e.detail.value)
   },
   showBrand: function () {
     wx.navigateTo({ url: '../brand/brand' });
