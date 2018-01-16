@@ -4,27 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    categories: [
-      'https://cdn.dribbble.com/users/23569/screenshots/333411/tokyobicycles_logo.png',
-      'https://cdn.dribbble.com/users/25514/screenshots/3174369/running_santa_animation_ramotion.gif',
-      'https://previews.123rf.com/images/cienpies/cienpies1308/cienpies130800032/21279829-vintage-coffee-shop-text-with-flat-icons-background--Stock-Vector.jpg',
-      'https://cdn.dribbble.com/users/60166/screenshots/931826/the_land_contour.jpg',
-      'https://cdn.dribbble.com/users/4931/screenshots/2484903/designplus-dribbble-new-fnl.gif',     
-      'https://thumb7.shutterstock.com/display_pic_with_logo/1367965/450559084/stock-vector-pizza-flat-icons-isolated-on-white-background-pizza-food-silhouette-pizza-piece-pizza-slice-450559084.jpg','https://cdn.dribbble.com/users/22325/screenshots/918590/beer_brothers.jpg',
-      'https://cdn.dribbble.com/users/78594/screenshots/699847/monogram-stamp.png',
-'https://cdn.dribbble.com/users/22679/screenshots/2037569/pbishot.png',
-    ],
-    products: [
-      {url:'https://cdn.dribbble.com/users/3460/screenshots/1089675/mcfly_gear_2013.png',name:'CLOTHES'},
-      {url:'https://cdn.dribbble.com/users/39185/screenshots/2523093/flower.jpg',name:'PLANT'},
-      {url:'https://cdn.dribbble.com/users/99875/screenshots/2755634/01nike.gif',name:'BALLS'},
-      {url:'https://cdn.dribbble.com/users/80158/screenshots/782582/dodgers_ios_icon.png',name:'CAP'},
-      {url:'https://cdn.dribbble.com/users/398490/screenshots/2848209/pullups.gif',name:'GYM'},
-      {url:'https://cdn.dribbble.com/users/25514/screenshots/2016747/flat-news-app-icon-design-ramotion.gif',name:'NEWS'},
-      {url:'https://cdn.dribbble.com/users/29591/screenshots/906704/fan.png',name:'FAN'},
-       {url:'https://cdn.dribbble.com/users/14268/screenshots/824210/waffle.png',name:'WAFFLES'},
-       {url:'https://cdn.dribbble.com/users/469578/screenshots/2376205/dancing_turkey.gif',name:'CHICKEN'}
-    ],
     cities: [
       {url:'https://www.fourseasons.com/content/dam/fourseasons/images/web/BEJ/BEJ_212_1280x486.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg',name:'BEIJING'},
       {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Storm_at_Manhattan.jpg/1024px-Storm_at_Manhattan.jpg',name:'NEW YORK'},
@@ -35,38 +14,17 @@ Page({
       {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Johannesburg_From_M2_Highway_Looking_North.jpg/800px-Johannesburg_From_M2_Highway_Looking_North.jpg',name:'JOHANNESBURG'},
        {url:'https://www.travelchinaguide.com/images/photogallery/2009/0601161148.jpg',name:'SHANGHAI'},
        {url:'http://kosublog.com/wp-content/uploads/2016/10/blog12-3-1-800x533.jpg',name:'SINGAPORE CITY'}
-    ],
-    array: ['USA', 'China', 'Brazil', 'Japan'],
-    objectArray: [
-      {
-        id: 0,
-        name: 'USA'
-      },
-      {
-        id: 1,
-        name: 'China'
-      },
-      {
-        id: 2,
-        name: 'Brazil'
-      },
-      {
-        id: 3,
-        name: 'Japan'
-      }
-    ],
-    index: 0,
-    date: '2016-09-01',
-    time: '12:01'
+    ]
   },
-  showProduct: function () {
-    wx.navigateTo({ url: '../item/item' });
+  showProduct: function (e) {
+    console.log('../item/item?id=' + e.target.dataset.id );
+    wx.navigateTo({ url: '../item/item?id=' + e.target.dataset.id });
   },
   doSearch: function (e) {
     console.log(e.detail.value)
   },
-  showBrand: function () {
-    wx.navigateTo({ url: '../brand/brand' });
+  showBrand: function (e) {
+    wx.navigateTo({ url: '../brand/brand?id=' + e.target.dataset.id });
   },
   showLocation:function(){
     wx.openLocation({
@@ -74,5 +32,20 @@ Page({
       longitude: 121.4767528,
       scale: 28
     })
+  },
+  loadBrands: function (brands) {
+    this.setData({
+      brands: brands
+    });
+  },
+  loadProducts: function (products) {
+    this.setData({
+      products: products
+    });
+  },
+  onLoad: function (options) {
+    var lc = require('../../utils/leancloud.js');
+    lc.getAll('Brand', this.loadBrands);
+    lc.getAll('Product', this.loadProducts);
   }
 })
