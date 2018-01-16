@@ -19,8 +19,17 @@ function r(uri, method, data, success, fail) {
   });
 }
 
-function getAll(className,cb){
-  r('/classes/'+className, 'GET', null,(res) => cb(res.data.results),() => cb(null))
+function getAll(className, cb) {
+  r('/classes/' + className, 'GET', null, (res) => cb(res.data.results), () => cb(null))
+}
+
+function getById(className, id, cb) {
+  r('/classes/' + className + '/' + id, 'GET', null, (res) => cb(res.data), () => cb(null))
+}
+
+function getByCondition(className, condition, cb) {
+  console.log('/classes/' + className + '?where=' + condition)
+  r('/classes/' + className +'?where='+condition, 'GET', null, (res) => cb(res.data.results), () => cb(null))
 }
 
 function getUserByOpenId(openId, cb) {
@@ -208,5 +217,7 @@ function getPeriodsOfActivityAndUser(activityObjectId, userObjectId, cb) {
 
 module.exports = {
   getUserByOpenId: getUserByOpenId,
-  getAll: getAll
+  getAll: getAll,
+  getById: getById,
+  getByCondition: getByCondition
 };

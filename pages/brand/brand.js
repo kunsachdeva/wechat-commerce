@@ -10,11 +10,16 @@ Page({
   data: {
   
   },
-
+  showBrand: function (brand) {
+    console.log(brand)
+    this.setData(brand)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (option) {
+    var lc = require('../../utils/leancloud.js');
+    lc.getById("Brand", option.id, this.showBrand)
     var wxCharts = require('wxcharts.min.js');
     new wxCharts({
       canvasId: 'pieCanvas',
