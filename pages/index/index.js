@@ -61,5 +61,8 @@ Page({
     {
       clearTimeout(id);
     }
+  },
+  showCart: function(){
+    wx.navigateTo({ url: '../cart/cart'});
   }
 })

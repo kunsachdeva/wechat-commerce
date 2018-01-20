@@ -1,12 +1,13 @@
 <!--index.wxml-->
 <view class="container">
 <view style='background-color:rgb(245,245,245);padding:1em'>
-  <input placeholder="Search..." bindinput="doSearch" confirm-type="search" style='background-color:white;border-radius:20px;padding:5px 10px 5px 20px;font-size:1emf;color:grey' placeholder-style='color:lightgrey'/>
+  <input placeholder="Search..." bindinput="doSearch" confirm-type="search" style='background-color:white;border-radius:20px;padding:5px 10px 5px 20px;font-size:1em;color:grey;width:calc(100% - 65px);float:left' placeholder-style='color:lightgrey'/>
+  <view bindtap='showCart' style='width:30px;height:2em;background-image:url(http://simpleicon.com/wp-content/uploads/Shopping-Cart-11.png);background-size:100%;background-repeat:no-repeat;float:left;margin-left:5px'></view>
   </view>
     <text wx:if="{{searchKeyword}}" class='h1'>SEARCHED PRODUCTS</text>
   <scroll-view wx:if="{{searchKeyword}}" scroll-x="true" style="width: 100%;height:260px">
     <view style='min-width:1600px;height:100px;'>
-      <view bindtap='showProduct' data-id="{{item.objectId}}" class="tile tile-with-text" wx:for="{{searchResult}}" style='background-image:url({{item.image}})'>
+      <view bindtap='showProduct' data-id="{{item.objectId}}" class="tile tile-with-text" wx:key="{{item.objectId}}" wx:for="{{searchResult}}" style='background-image:url({{item.image}})'>
         <view class='tile-text-description'>
           <text>{{item.name}}</text>
           <text>元 {{item.price}}</text>
@@ -18,13 +19,13 @@
     <text class='h1'>OUR BRANDS</text>
   <scroll-view scroll-x="true" style="width: 100%;height:200px">
     <view style='min-width:1600px;height:100px;background:#2ecc71'>
-      <view bindtap='showBrand' class="tile" wx:for="{{brands}}" style='background-image:url({{item.image}})' data-id="{{item.objectId}}"/>
+      <view bindtap='showBrand' wx:key="{{item.objectId}}" class="tile" wx:for="{{brands}}" style='background-image:url({{item.image}})' data-id="{{item.objectId}}"/>
     </view>
   </scroll-view>
     <text class='h1'>TOP PRODUCTS</text>
   <scroll-view scroll-x="true" style="width: 100%;height:260px">
     <view style='min-width:1600px;height:100px;'>
-      <view bindtap='showProduct' data-id="{{item.objectId}}" class="tile tile-with-text" wx:for="{{products}}" style='background-image:url({{item.image}})'>
+      <view bindtap='showProduct' data-id="{{item.objectId}}" class="tile tile-with-text" wx:key="{{item.objectId}}" wx:for="{{products}}" style='background-image:url({{item.image}})'>
         <view class='tile-text-description'>
           <text>{{item.name}}</text>
           <text>元 {{item.price}}</text>
@@ -35,7 +36,7 @@
   </scroll-view>
     <text class='h1'>STORES WORLDWISE</text>
   <scroll-view scroll-y="true" style="width: 100%;height:500px;">
-      <view bindtap='showLocation' class="tile tile-banner" wx:for="{{cities}}" style='background-image:url({{item.url}})'>
+      <view bindtap='showLocation' wx:key="{{item.name}}" class="tile tile-banner" wx:for="{{cities}}" style='background-image:url({{item.url}})'>
         <text>{{item.name}}</text>
       </view>
   </scroll-view>

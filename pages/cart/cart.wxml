@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <text class='h1'>CART</text>
+  <view data-id="{{item.objectId}}" class="tile tile-with-text cartItem" wx:key="{{item.objectId}}" wx:for="{{products}}" style='background-image:url({{item.image}})'>
+    <view class='tile-text-description'>
+      <text>{{item.name}}</text>
+      <text>元 {{item.price}} x {{item.count}} = {{item.price*item.count}}</text> 
+      <image src='https://camo.githubusercontent.com/c991598c63d78899b30db5b726153f6fce7c5cd6/687474703a2f2f692e696d6775722e636f6d2f397553674c6f552e706e67' style='width:80px;height:20px'></image>
+    </view>
+  </view>
+  <button type="primary" size='default' style='width:100%;position:absolute;bottom:-2px'>fdsgd</button>
+</view>
